@@ -5,11 +5,11 @@ A web application for keeping a searchable registry of graduates' diploma works.
 ## Screenshots
 
 <p align="center">
-  <img src="docs/screenshots/search.jpg" alt="Search and filters" width="49%">
-  <img src="docs/screenshots/admin.jpg" alt="Admin panel with invites and unverified records" width="49%">
+  <img src="https://raw.githubusercontent.com/danylokiri/diploma-registry/assets/screenshots/search.jpg" alt="Search and filters" width="49%">
+  <img src="https://raw.githubusercontent.com/danylokiri/diploma-registry/assets/screenshots/admin.jpg" alt="Admin panel with invites and unverified records" width="49%">
 </p>
 <p align="center">
-  <img src="docs/screenshots/diploma-details.jpg" alt="Diploma record" width="49%">
+  <img src="https://raw.githubusercontent.com/danylokiri/diploma-registry/assets/screenshots/diploma-details.jpg" alt="Diploma record" width="49%">
 </p>
 
 The screenshots use fictional demo data.
