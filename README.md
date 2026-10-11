@@ -73,7 +73,7 @@ See [`backend/.env.example`](backend/.env.example).
 | Variable | Description |
 |---|---|
 | `DATABASE_URL` | PostgreSQL connection string |
-| `JWT_SECRET` | secret for signing tokens |
+| `JWT_SECRET` | secret for signing tokens; in production the server refuses to start with a missing or weak value |
 | `ALLOW_SELF_REGISTER` | allow registration without an invite |
 | `INVITE_TTL_MS` | invite lifetime in milliseconds (empty or 0 = no expiry) |
 | `UPLOAD_DIR`, `MAX_FILE_MB` | upload directory and maximum file size |
