@@ -3,11 +3,12 @@ import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { requireAuth } from '../middleware/auth.js';
+import { config } from '../config.js';
 
 const prisma = new PrismaClient();
 const router = Router();
 
-const JWT = process.env.JWT_SECRET || 'dev_secret_replace_me';
+const JWT = config.jwtSecret;
 const TOKEN_TTL = process.env.JWT_TTL || '7d';
 const ALLOW_SELF_REGISTER = (/^(1|true|yes)$/i).test(process.env.ALLOW_SELF_REGISTER || '');
 

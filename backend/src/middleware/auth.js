@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
+import { config } from '../config.js';
 
-const JWT = process.env.JWT_SECRET || 'dev_secret_replace_me';
+const JWT = config.jwtSecret;
 
 export function requireAuth(req, res, next) {
   const hdr = req.headers.authorization || '';

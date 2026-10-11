@@ -30,7 +30,10 @@ const upload = multer({
   fileFilter: (_req, file, cb) => {
     const ext = (path.extname(file.originalname) || '').toLowerCase();
     const ok = ALLOWED_MIME.has((file.mimetype || '').toLowerCase()) && ALLOWED_EXT.has(ext);
-    cb(ok ? null : new Error('INVALID_FILE_TYPE'));
+    if (ok) return cb(null, true);
+    const err = new Error('INVALID_FILE_TYPE');
+    err.code = 'INVALID_FILE_TYPE';
+    cb(err);
   },
 });
 const acceptAnyFiles = upload.any();

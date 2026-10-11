@@ -39,9 +39,12 @@ app.use((req, res) => res.status(404).json({ status: 'error', message: 'Not Foun
 
 // Error
 app.use((err, _req, res, _next) => {
-    const httpStatus = Number(err?.status || 500);
+    // Upload problems reported by multer are client errors, not server errors.
+    const uploadError = err?.code === 'INVALID_FILE_TYPE' || err?.code === 'LIMIT_FILE_SIZE';
+    const httpStatus = Number(err?.status || (uploadError ? 400 : 500));
     logger.error({ err }, 'Unhandled error');
-    const payload = { status: 'error', message: err?.message || 'Internal Server Error' };
+    const message = err?.code === 'LIMIT_FILE_SIZE' ? 'FILE_TOO_LARGE' : err?.message;
+    const payload = { status: 'error', message: message || 'Internal Server Error' };
     if (err?.errors && typeof err.errors === 'object') payload.errors = err.errors;
     return res.status(httpStatus).json(payload);
 });
